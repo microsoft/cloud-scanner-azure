@@ -1,7 +1,10 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(name='cloud_scanner_azure',
-      version='0.1',
+      version='0.0.1',
       description='Core package for scanning Azure cloud resources',
       url='',
       author='Tanner Barlow',
