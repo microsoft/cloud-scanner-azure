@@ -1,11 +1,11 @@
 import json
 
 from cloud_scanner_azure.simulators import MockBlobStorageSimulator
-from cloud_scanner.contracts import ConfigGenerator
+from cloud_scanner.contracts import CloudConfigGenerator
 from .unittest_base import TestCase
 
 
-class ConfigGeneratorTest(TestCase):
+class CloudConfigGeneratorTest(TestCase):
 
     types = ['vm', 'storage']
     provider_types = ['simulator']
@@ -31,7 +31,7 @@ class ConfigGeneratorTest(TestCase):
 
     def test_azure_generator(self):
         container = MockBlobStorageSimulator()
-        config_generator = ConfigGenerator(container)
+        config_generator = CloudConfigGenerator(container)
         config = config_generator.generate_config(
             self.provider_types, self.types)
 

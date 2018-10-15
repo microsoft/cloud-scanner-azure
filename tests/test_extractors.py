@@ -1,5 +1,5 @@
 from .unittest_base import TestCase
-from cloud_scanner.helpers import ResourceExtractors
+from cloud_scanner_azure.helpers import ResourceExtractors
 
 
 class AzureResourceExtractorTest(TestCase):

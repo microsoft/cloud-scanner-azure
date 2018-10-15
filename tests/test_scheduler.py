@@ -2,7 +2,7 @@ import os
 
 from cloud_scanner_azure.simulators import MockBlobStorageSimulator
 from cloud_scanner.services.task_scheduler import TaskScheduler
-from cloud_scanner.contracts import ConfigReader
+from cloud_scanner.contracts import CloudConfigReader
 from .unittest_base import TestCase
 
 
@@ -14,7 +14,7 @@ class TestScheduler(TestCase):
 
     def read_config(self):
         container = MockBlobStorageSimulator()
-        config_reader =  ConfigReader(container)
+        config_reader =  CloudConfigReader(container)
         return config_reader.read_config()
 
     def test_latest_config_is_picked(self):

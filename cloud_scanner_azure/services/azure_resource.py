@@ -1,7 +1,7 @@
 import copy
 
 from cloud_scanner.contracts.resource import Resource
-from cloud_scanner.helpers.extractors import ResourceExtractors
+from cloud_scanner_azure.helpers.extractors import ResourceExtractors
 
 
 class AzureResource(Resource):
