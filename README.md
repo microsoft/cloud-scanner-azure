@@ -1,6 +1,6 @@
 # cloud-scanner-azure
 
-Azure package of adapters for [cloud-scanner]() library. Includes services and their required configurations.
+Azure package of adapters for [cloud-scanner](https://github.com/Microsoft/cloud-scanner) library. Includes services and their required configurations.
 
 ### Running Locally
 
