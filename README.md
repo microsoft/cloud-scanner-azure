@@ -1,20 +1,34 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# cloud-scanner-azure
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Azure package of adapters for [cloud-scanner]() library. Includes services and their required configurations.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+### Running Locally
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+You can run unit tests in a Python 3.6 virtual environment:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+```python
+virtualenv env
+source env/bin/activate
+(env) pip install -r requirements.txt
+(env) python -m pytest
+```
+
+#### Queue Adapters
+- Azure Storage Queue
+    - Needs `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY`
+    - To use, set environment variable `QUEUE_TYPE=azure_storage_queue`
+
+#### Resource Service Adapters
+- Azure Resource Service
+    - Needs `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` and `AZURE_TENANT_ID` of Service Principal
+    - If performing actions other than reading, Service Principal needs to be given `Contributor` access or greater
+
+#### Storage Container Adapters
+- Azure Blob Storage
+    - Needs `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY`
+    - To use, set environment variable `STORAGE_CONTAINER_TYPE=azure_storage`
+
+#### Table Storage Adapters
+- Azure CosmosDB
+    - Needs `COSMOS_TABLE`, `COSMOS_ACCOUNT` and `COSMOS_KEY`
+    - To use, set environment variable `RESOURCE_STORAGE_TYPE=azure_cosmos_table`
