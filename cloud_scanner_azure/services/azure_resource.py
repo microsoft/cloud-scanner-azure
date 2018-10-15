@@ -5,6 +5,9 @@ from cloud_scanner_azure.helpers.extractors import ResourceExtractors
 
 
 class AzureResource(Resource):
+    """
+    Wrapper of AzureResource implementing Resource abstract base class
+    """
 
     def __init__(self, resource_dict: dict):
         '''

@@ -5,20 +5,33 @@ from cloud_scanner.contracts.storage_container_factory import register_storage_c
 
 
 class MockBlobStorageOutput:
+    """
+    Simulator of blob storage output
+    """
     def __init__(self, name, content):
         self._name = name
         self._content = str(content)
 
     @property
     def name(self):
+        """
+        :return: str Name of blob file
+        """
         return self._name
 
     @property
     def content(self):
+        """
+        :return: str Content of blob file
+        """
         return self._content
+
 
 @register_storage_container("simulator", lambda: MockBlobStorageSimulator())
 class MockBlobStorageSimulator(StorageContainer):
+    """
+    Simulator of BlobStorage
+    """
     def __init__(self):
 
         config_content = '''{
@@ -58,6 +71,10 @@ class MockBlobStorageSimulator(StorageContainer):
         self._latest_entry = latest
 
     def get_blob_to_text(self, config):
+        """
+        :param config: Config file to get text from
+        :return: Text contained in config
+        """
         # ensure the latest config was picked
         if config is not self._latest_entry.name:
             logging.error("The picked config is not the latest. Returned: %s, latest: %s",
@@ -66,10 +83,22 @@ class MockBlobStorageSimulator(StorageContainer):
         return self._latest_entry
 
     def list_blobs(self):
+        """
+        :return: List of blob files
+        """
         return self._entries
 
     def get_latest_config(self):
+        """
+        :return: Latest config file
+        """
         return self._latest_entry
 
     def upload_text(self, filename, text):
-        raise logging.warning("upload_text was called.")
+        """
+        Fake call to upload text
+        :param filename: name of new config file
+        :param text: text to put in config file
+        :return: None
+        """
+        logging.info("upload_text was called.")

@@ -7,7 +7,6 @@ from cloud_scanner_azure.config.azure_storage_config import AzureStorageConfig
 
 @register_queue_service("azure_storage_queue", lambda queue_name: AzureStorageQueue.create(queue_name))
 class AzureStorageQueue(Queue):
-
     """
     Interface for interacting with an Azure Storage Queue (through the Queue contract)
     """
