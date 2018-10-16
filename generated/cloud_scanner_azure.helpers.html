@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cloud_scanner_azure.helpers package &#8212; Cloud Scanner Azure 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cloud_scanner_azure.services package" href="cloud_scanner_azure.services.html" />
+    <link rel="prev" title="cloud_scanner_azure.config package" href="cloud_scanner_azure.config.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cloud-scanner-azure-helpers-package">
+<h1>cloud_scanner_azure.helpers package<a class="headerlink" href="#cloud-scanner-azure-helpers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cloud_scanner_azure.helpers.extractors">
+<span id="cloud-scanner-azure-helpers-extractors-module"></span><h2>cloud_scanner_azure.helpers.extractors module<a class="headerlink" href="#module-cloud_scanner_azure.helpers.extractors" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors">
+<em class="property">class </em><code class="descclassname">cloud_scanner_azure.helpers.extractors.</code><code class="descname">ResourceExtractors</code><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Utility class for extracting components from an Azure Resource id</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>provider_extractor: Regex for extracting the resource provider.
+type_extractor: Regex for extracting types from a resource provider.
+rg_sub_extractor: Regex for extracting the resource group and subscription id.</dd>
+</dl>
+<dl class="classmethod">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_group">
+<em class="property">classmethod </em><code class="descname">get_resource_group</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the resource group from a resource id.
+:param resource_id” resource id to extract from
+:return: resource group string or None</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_provider">
+<em class="property">classmethod </em><code class="descname">get_resource_provider</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the resource provider from a resource id.
+:param resource_id” resource id to extract from
+:return: resource provider string or None</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_type">
+<em class="property">classmethod </em><code class="descname">get_resource_type</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the resource type from a resource id.
+:param resource_id” resource id to extract from
+:return: resource type string or None</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_subscription">
+<em class="property">classmethod </em><code class="descname">get_subscription</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.get_subscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the subscription id from a resource id.
+:param resource_id” resource id to extract from
+:return: subscription id string or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.provider_extractor">
+<code class="descname">provider_extractor</code><em class="property"> = re.compile('(?!(?:\\/[^\\/]+\\/[^\\/]+)+\\/providers)\\/providers\\/([^\\/]+)((:?\\/[^\\/]+\\/[^\\/]+)*)$', re.IGNORECASE)</em><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.provider_extractor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.rg_sub_extractor">
+<code class="descname">rg_sub_extractor</code><em class="property"> = re.compile('\\/subscriptions\\/([^\\/\\s]+)(?:\\/resourceGroups\\/([^\\/\\s]+))?', re.IGNORECASE)</em><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.rg_sub_extractor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloud_scanner_azure.helpers.extractors.ResourceExtractors.type_extractor">
+<code class="descname">type_extractor</code><em class="property"> = re.compile('\\/([^\\/]+)\\/([^\\/]+)', re.IGNORECASE)</em><a class="headerlink" href="#cloud_scanner_azure.helpers.extractors.ResourceExtractors.type_extractor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloud_scanner_azure.helpers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloud_scanner_azure.helpers" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">cloud_scanner_azure</a><ul>
+  <li><a href="cloud_scanner_azure.html">cloud_scanner_azure package</a><ul>
+      <li>Previous: <a href="cloud_scanner_azure.config.html" title="previous chapter">cloud_scanner_azure.config package</a></li>
+      <li>Next: <a href="cloud_scanner_azure.services.html" title="next chapter">cloud_scanner_azure.services package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Microsoft.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/generated/cloud_scanner_azure.helpers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,20 @@
+cloud\_scanner\_azure package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    cloud_scanner_azure.config
+    cloud_scanner_azure.helpers
+    cloud_scanner_azure.services
+    cloud_scanner_azure.simulators
+
+Module contents
+---------------
+
+.. automodule:: cloud_scanner_azure
+    :members:
+    :undoc-members:
+    :show-inheritance:
