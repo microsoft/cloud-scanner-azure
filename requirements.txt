@@ -1,9 +1,0 @@
-azure-mgmt-nspkg
-azure-mgmt-resource
-azure-mgmt-subscription
-azure-servicebus
-azure-storage
-azure-storage-common
-azure-cosmosdb-table
-azure-functions
--e ../cloud-scanner
