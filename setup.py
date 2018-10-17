@@ -1,14 +1,11 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
-
 setup(name='cloud_scanner_azure',
       version='0.0.1',
       description='Core package for scanning Azure cloud resources',
-      url='',
-      author='Tanner Barlow',
-      author_email='tanner.barlow12@gmail.com',
+      url='https://microsoft.github.io/cloud-scanner-azure',
+      author='Microsoft',
+      author_email='tanner.barlow@microsoft.com,wallace.breza@microsoft.com',
       license='MIT',
       packages=find_packages(),
       install_requires=[
