@@ -1,7 +1,7 @@
 import os
 
 from cloud_scanner_azure.config import AzureConfig
-from .unittest_base import TestCase
+from .unittest_base import TestCase 
 
 
 class TestAzureConfig(TestCase):
