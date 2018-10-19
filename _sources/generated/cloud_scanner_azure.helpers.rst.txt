@@ -1,11 +1,11 @@
-cloud\_scanner\_azure\.helpers package
-======================================
+cloud\_scanner\_azure.helpers package
+=====================================
 
 Submodules
 ----------
 
-cloud\_scanner\_azure\.helpers\.extractors module
--------------------------------------------------
+cloud\_scanner\_azure.helpers.extractors module
+-----------------------------------------------
 
 .. automodule:: cloud_scanner_azure.helpers.extractors
     :members:

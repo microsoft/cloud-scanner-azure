@@ -1,43 +1,43 @@
-cloud\_scanner\_azure\.config package
-=====================================
+cloud\_scanner\_azure.config package
+====================================
 
 Submodules
 ----------
 
-cloud\_scanner\_azure\.config\.azure\_config module
----------------------------------------------------
+cloud\_scanner\_azure.config.azure\_config module
+-------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.config.azure_config
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.config\.azure\_cosmosdb\_config module
--------------------------------------------------------------
+cloud\_scanner\_azure.config.azure\_cosmosdb\_config module
+-----------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.config.azure_cosmosdb_config
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.config\.azure\_credential\_config module
----------------------------------------------------------------
+cloud\_scanner\_azure.config.azure\_credential\_config module
+-------------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.config.azure_credential_config
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.config\.azure\_resource\_config module
--------------------------------------------------------------
+cloud\_scanner\_azure.config.azure\_resource\_config module
+-----------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.config.azure_resource_config
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.config\.azure\_storage\_config module
-------------------------------------------------------------
+cloud\_scanner\_azure.config.azure\_storage\_config module
+----------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.config.azure_storage_config
     :members:

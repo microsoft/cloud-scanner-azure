@@ -9,7 +9,18 @@ Subpackages
     cloud_scanner_azure.config
     cloud_scanner_azure.helpers
     cloud_scanner_azure.services
-    cloud_scanner_azure.simulators
+
+Submodules
+----------
+
+cloud\_scanner\_azure.version module
+------------------------------------
+
+.. automodule:: cloud_scanner_azure.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

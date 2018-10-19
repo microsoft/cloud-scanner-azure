@@ -1,51 +1,51 @@
-cloud\_scanner\_azure\.services package
-=======================================
+cloud\_scanner\_azure.services package
+======================================
 
 Submodules
 ----------
 
-cloud\_scanner\_azure\.services\.azure\_cosmosdb module
--------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_cosmosdb module
+-----------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_cosmosdb
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.services\.azure\_resource module
--------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_resource module
+-----------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_resource
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.services\.azure\_resource\_service module
-----------------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_resource\_service module
+--------------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_resource_service
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.services\.azure\_storage\_container module
------------------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_storage\_container module
+---------------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_storage_container
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.services\.azure\_storage\_queue module
--------------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_storage\_queue module
+-----------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_storage_queue
     :members:
     :undoc-members:
     :show-inheritance:
 
-cloud\_scanner\_azure\.services\.azure\_subscription\_service module
---------------------------------------------------------------------
+cloud\_scanner\_azure.services.azure\_subscription\_service module
+------------------------------------------------------------------
 
 .. automodule:: cloud_scanner_azure.services.azure_subscription_service
     :members:
