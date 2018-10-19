@@ -1,7 +1,9 @@
 from setuptools import setup, find_packages
 
+
+exec(open('cloud_scanner_azure/version.py').read())
 setup(name='cloud_scanner_azure',
-      version='0.0.1',
+      version=__version__,
       description='Core package for scanning Azure cloud resources',
       url='https://microsoft.github.io/cloud-scanner-azure',
       author='Microsoft',
