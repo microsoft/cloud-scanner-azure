@@ -2,25 +2,24 @@ import logging
 
 from azure.mgmt.resource import ResourceManagementClient
 
-from cloud_scanner.contracts.resource_service import ResourceService, ResourceFilter
-from cloud_scanner.contracts.resource_service_factory import register_resource_service
-from cloud_scanner_azure.config.azure_config import AzureConfig
-from cloud_scanner_azure.config.azure_resource_config import AzureResourceServiceConfig
+from cloud_scanner.contracts import (
+    ResourceService, ResourceFilter, register_resource_service
+)
+from cloud_scanner_azure.config import AzureConfig, AzureResourceServiceConfig
+
 from .azure_resource import AzureResource
 
 
 class NoFilter(ResourceFilter):
-    """
-    Allows for querying all resources
-    """
+    """Allows for querying all resources."""
+
     def normalized_filter(self):
         return None
 
 
 class AzureResourceTypeFilter(ResourceFilter):
-    """
-    Allows for querying all resources
-    """
+    """Allows for querying all resources."""
+
     def __init__(self, resource_type):
         self._filter = "resourceType eq '" + resource_type + "'"
 
@@ -31,11 +30,12 @@ class AzureResourceTypeFilter(ResourceFilter):
         return self._filter
 
 
-@register_resource_service('azure', lambda subscription_id: AzureResourceService.create(subscription_id))
+@register_resource_service('azure',
+                           lambda subscription_id:
+                           AzureResourceService.create(subscription_id))
 class AzureResourceService(ResourceService):
-    """
-    Service for querying Azure resources
-    """
+    """Service for querying Azure resources."""
+
     def __init__(self, config: AzureResourceServiceConfig):
         self._client = None
         self._config = config
@@ -44,44 +44,50 @@ class AzureResourceService(ResourceService):
         self._knownTypes = {
             'vm': 'Microsoft.Compute/virtualMachines',
             'storage': 'Microsoft.Storage/storageAccounts',
-            'microsoft.compute/virtualmachines': 'Microsoft.Compute/virtualMachines',
-            'microsoft.storage/storageaccounts': 'Microsoft.Storage/storageAccounts'
+            'microsoft.compute/virtualmachines':
+                'Microsoft.Compute/virtualMachines',
+            'microsoft.storage/storageaccounts':
+                'Microsoft.Storage/storageAccounts'
         }
 
     def _get_client(self):
-        """
-        Initializes Azure ResourceManagementClient
+        """Initializes Azure ResourceManagementClient.
+
         :return: ResourceManagementClient object
         """
         if self._client is None:
             self._client = ResourceManagementClient(
-                self._config.credentials.service_principal, self._config.subscription_id)
+                self._config.credentials.service_principal,
+                self._config.subscription_id)
 
         return self._client
 
     @property
     def name(self):
-        """
-        Name of cloud provider
+        """Name of cloud provider.
+
         :return: 'azure'
         """
         return "azure"
 
     def get_resources(self, filter: ResourceFilter = None):
-        """
-        Get resources based on filter
+        """Get resources based on filter.
+
         :param filter: Filter for resources
         :return: List of AzureResource objects as serialized from client
         """
         resources = self._get_client().resources.list(
             expand="tags", filter=filter.normalized_filter())
-        return [AzureResource(resource.serialize(True)) for resource in resources]
+        return [AzureResource(resource.serialize(True))
+                for resource in resources]
 
     def get_filter(self, payload):
-        """
-        Returns filter object based on payload
-        :param payload: Filter type (if payload is one of the resource types, returns
-        AzureResourceTypeFilter. No other filter types are supported except NoFilter)
+        """Returns filter object based on payload.
+
+        :param payload: Filter type
+        (if payload is one of the resource types, returns
+        AzureResourceTypeFilter. No other filter types are
+        supported except NoFilter)
         :return: Filter object
         """
         try:
@@ -98,8 +104,8 @@ class AzureResourceService(ResourceService):
                 "The payload " + payload + " is not a supported filter")
 
     def update_resource(self, resource: AzureResource):
-        """
-        Updates Azure resource
+        """Updates Azure resource.
+
         :param resource: AzureResource object to update
         :return:
         """
@@ -113,8 +119,8 @@ class AzureResourceService(ResourceService):
 
     # Internal Helper function to resolve API version to access Azure with
     def _resolve_api_for_resource_type(self, resource_type):
-        """
-        Gets API version for resource type
+        """Gets API version for resource type.
+
         :param resource_type: Azure resource type
         :return: API version required for client
         """
@@ -126,16 +132,17 @@ class AzureResourceService(ResourceService):
         resource_provider_type = resource_type_info[1]
 
         provider = self._get_client().providers.get(resource_provider)
-        provider_details = next((t for t in provider.resource_types
-                                 if t.resource_type == resource_provider_type), None)
+        provider_details = next(
+            (t for t in provider.resource_types if
+             t.resource_type == resource_provider_type), None)
 
         if provider_details and 'api_versions' in provider_details.__dict__:
             # Remove preview API versions
             api_version = [v for v in provider_details.__dict__[
                 'api_versions'] if 'preview' not in v.lower()]
             # Get most recent remaining API
-            chosen_api = api_version[0] if api_version else provider_details.__dict__[
-                'api_versions'][0]
+            chosen_api = api_version[0] if api_version else \
+                provider_details.__dict__['api_versions'][0]
             self._resource_type_apis[resource_type] = chosen_api
 
             return chosen_api
@@ -144,10 +151,11 @@ class AzureResourceService(ResourceService):
 
     @staticmethod
     def create(subscription_id):
-        """
-        Instantiate AzureResourceService for specified subscription
+        """Instantiate AzureResourceService for specified subscription.
+
         :param subscription_id: Subscription to manage with service
         :return: AzureResourceService object
         """
         config = AzureConfig()
-        return AzureResourceService(config.get_resource_service_config(subscription_id))
+        return AzureResourceService(
+            config.get_resource_service_config(subscription_id))

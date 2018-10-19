@@ -3,30 +3,28 @@ from cloud_scanner.config import Config
 
 
 class AzureCredentialConfig(Config):
-    """
-    Configuration required for usage of Azure Credentials
-    """
+    """Configuration required for usage of Azure Credentials."""
 
     @property
     def client_id(self):
-        """
-        Client ID for service principal
+        """Client ID for service principal.
+
         :return: str Client ID
         """
         return self.get_property('AZURE_CLIENT_ID')
 
     @property
     def client_secret(self):
-        """
-        Client secret for service principal
+        """Client secret for service principal.
+
         :return: str Client Secret
         """
         return self.get_property('AZURE_CLIENT_SECRET')
 
     @property
     def tenant_id(self):
-        """
-        Tenant ID for service principal
+        """Tenant ID for service principal.
+
         :return: str Tenant ID
         """
         return self.get_property('AZURE_TENANT_ID')

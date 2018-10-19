@@ -1,15 +1,14 @@
 from azure.mgmt.resource.subscriptions import SubscriptionClient
 
 from cloud_scanner.contracts import AccountService, register_account_service
-from cloud_scanner_azure.config.azure_config import AzureConfig
-from cloud_scanner_azure.config.azure_credential_config import AzureCredentialConfig
+from cloud_scanner_azure.config.azure_config import (
+    AzureConfig, AzureCredentialConfig)
 
 
-@register_account_service("azure", lambda: AzureSubscriptionService.create())
+@register_account_service("azure",
+                          lambda: AzureSubscriptionService.create())
 class AzureSubscriptionService(AccountService):
-    """
-    Service to get available subscriptions from Azure
-    """
+    """Service to get available subscriptions from Azure."""
 
     def __init__(self, config: AzureCredentialConfig):
         self._client = None
@@ -32,12 +31,14 @@ class AzureSubscriptionService(AccountService):
             'displayName': ...
         }
         """
-        return [sub.serialize(True) for sub in self._get_client().subscriptions.list()]
+        return [sub.serialize(True) for sub in
+                self._get_client().subscriptions.list()]
 
     @staticmethod
     def create():
         """
-        :return: Initialized AzureSubscriptionService object with creds from config
+        :return: Initialized AzureSubscriptionService object with
+        creds from config
         """
         config = AzureConfig()
         return AzureSubscriptionService(config.credential_config)

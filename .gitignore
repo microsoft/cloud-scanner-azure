@@ -107,3 +107,4 @@ venv.bak/
 .env
 env/
 docs/source/generated
+.vscode/

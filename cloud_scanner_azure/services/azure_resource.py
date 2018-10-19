@@ -5,19 +5,17 @@ from cloud_scanner_azure.helpers.extractors import ResourceExtractors
 
 
 class AzureResource(Resource):
-    """
-    Wrapper of AzureResource implementing Resource abstract base class
-    """
+    """Wrapper of AzureResource implementing Resource abstract base class."""
 
     def __init__(self, resource_dict: dict):
-        '''
-        Create AzureResource from dictionary with necessary values
+        """Create AzureResource from dictionary with necessary values.
+
         :param resource_dict: Dictionary with data like:
         {
             'id': <resource-id>,
             'provider_type': <cloud-provider>
         {
-        '''
+        """
 
         d = copy.deepcopy(resource_dict)
 
@@ -32,8 +30,8 @@ class AzureResource(Resource):
 
     @property
     def group(self):
-        '''
-        Azure Resource Group
+        """Azure Resource Group.
+
         :return: Name of resource group for resource
-        '''
+        """
         return self._group
