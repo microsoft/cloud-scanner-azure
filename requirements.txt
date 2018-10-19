@@ -6,4 +6,3 @@ azure-storage
 azure-storage-common
 azure-cosmosdb-table
 azure-functions
--e ../cloud-scanner

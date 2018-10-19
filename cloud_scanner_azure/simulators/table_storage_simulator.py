@@ -1,5 +1,6 @@
 from cloud_scanner.contracts import (
-    TableStorage, Resource, register_resource_storage, entry_storage)
+    TableStorage, Resource, register_resource_storage)
+from cloud_scanner.helpers import entry_storage
 
 
 @register_resource_storage("simulator",
