@@ -6,3 +6,4 @@ azure-storage
 azure-storage-common
 azure-cosmosdb-table
 azure-functions
+flake8
