@@ -43,11 +43,7 @@ class AzureResourceService(ResourceService):
 
         self._knownTypes = {
             'vm': 'Microsoft.Compute/virtualMachines',
-            'storage': 'Microsoft.Storage/storageAccounts',
-            'microsoft.compute/virtualmachines':
-                'Microsoft.Compute/virtualMachines',
-            'microsoft.storage/storageaccounts':
-                'Microsoft.Storage/storageAccounts'
+            'storage': 'Microsoft.Storage/storageAccounts'
         }
 
     def _get_client(self):
@@ -84,24 +80,19 @@ class AzureResourceService(ResourceService):
     def get_filter(self, payload):
         """Returns filter object based on payload.
 
-        :param payload: Filter type
-        (if payload is one of the resource types, returns
-        AzureResourceTypeFilter. No other filter types are
-        supported except NoFilter)
+        :param payload: Filter type.
+        If payload is one of the known resource types, returns
+        AzureResourceTypeFilter with long type name. Users
+        can also directly specify long type name (e.g.
+        Microsoft.Compute/virtualMachines) and it will be used
+        as the resource filter.
+        No other filter types are supported except NoFilter.
         :return: Filter object
         """
-        try:
-            resource_type = self._knownTypes[payload.lower()]
-            return AzureResourceTypeFilter(resource_type)
-        except AttributeError:
+        if payload is None or payload.strip() == '*' or payload.strip() == '':
             return NoFilter()
-        except KeyError:
-            logging.warning("The filter " + payload +
-                            " is not supported and will be ignored")
-            return NoFilter()
-        except Exception:
-            raise NotImplementedError(
-                "The payload " + payload + " is not a supported filter")
+        resource_type = self._knownTypes.get(payload.lower(), payload)
+        return AzureResourceTypeFilter(resource_type)
 
     def update_resource(self, resource: AzureResource):
         """Updates Azure resource.
