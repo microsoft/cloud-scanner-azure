@@ -18,6 +18,7 @@ class AzureSubscriptionService(AccountService):
         """
         :return: Azure SubscriptionClient object
         """
+
         if self._client is None:
             self._client = SubscriptionClient(self._config.service_principal)
 
@@ -36,7 +37,8 @@ class AzureSubscriptionService(AccountService):
     def create():
         """
         :return: Initialized AzureSubscriptionService object with
-        creds from config
+            creds from config
         """
+
         config = AzureConfig()
         return AzureSubscriptionService(config.credential_config)
