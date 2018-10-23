@@ -30,6 +30,6 @@ deploy:
     password:
       secure: "Rr911WIQxULM+GrCjQW/35kODjWXKtJByb78dV2/7Y+JiocvYaWdn6UUt9pacwpagYKO/losdgNYXxqkDRE6zy7MemuKx7CZlNx8gP3KRYaQ1EKfmdnZ0Y29yhcAX1vSDRzqLfy2fFyhEnDvxbP4lJ7gUxWDw9ePPY5AJ0z22xO8hGcS9tt8uDXMAB8lUN4czAtH8ONiTSMgpccaoPqq9ws2csBCPgdhzvi0/aJFs9rvRG4+4rOIUPlzKmx7wexB6gh5hwK8HQM/2F+po8R5B2hu6v7Y+5ACKy9SNamnIXSCivAJXJ0BGNG1QxSxiolPgUXlpEx392M6WUZVSbXP4kXZ4OS1dAWysZ26/taZDiLvoOYwo0FhEx/KHQ1tP5FknlMR+PJKnelCSyUMlrAv6wSwT3EE9zdKK/Ah1MEcwL5OjcTpEln+4r66w07JMuvfSnm7dIL2Qp++oSt4ANl+rc49Z6IaKDLpVB4EBpV1+twJhR/qfo0mLEc8kMZs9JoMfWl/BecsgObSC4i2o2kA7GvvgdPQl4TvdTu3RPgvxTbygi7+eoS2XaViW+7QiklwHHJr6b1jW5GZBwih5/lat8n1mPmyO66cgaB7+hYjzUbe5AAtHJlpM0dqFdeh3efGppCI1MLeOqAEi+AlyHmH8LS7nICudoocSfYHuK5IWMA="
     distributions: "sdist bdist_wheel"
-    server: https://testpypi.python.org/pypi
+    server: https://test.pypi.org/legacy/
     on:
       tags: true
