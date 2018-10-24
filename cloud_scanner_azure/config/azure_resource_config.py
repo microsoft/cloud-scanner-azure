@@ -1,4 +1,5 @@
-from .azure_credential_config import AzureCredentialConfig
+from cloud_scanner_azure.config.azure_credential_config import (
+    AzureCredentialConfig)
 
 
 class AzureResourceServiceConfig:

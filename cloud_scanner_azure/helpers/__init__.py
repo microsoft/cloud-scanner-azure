@@ -1,1 +1,1 @@
-from .extractors import ResourceExtractors
+from cloud_scanner_azure.helpers.extractors import ResourceExtractors
