@@ -2,7 +2,7 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install --index-url https://test.pypi.org/simple/ -r requirements-test.txt --extra-index-url https://pypi.org/simple/ -r requirements.txt
+  - pip install -r requirements.txt
 script:
   - pytest
   - flake8 --ignore=F401 cloud_scanner_azure
@@ -17,18 +17,15 @@ deploy:
   - provider: pages
     skip_cleanup: true
     local-dir: docs/build/html
-    github-token:
-      secure: "N6UdBoAS9P08XDZUA9LENpz2W4x6n8H3iMhwoqn4xjAr3JjQNrA6f/a6aep7cjx8h+Ao+d5ueTsViBi5cZqq+LYjhXxycxvmvKA18gy/nYw2Z9si5zgmmiKDGPrUzvJBnqrPCLg2sGcxf1Uvp9hd6jjf6ujZy1ngQa3UC/MPDSyGREAufewRL7JxEJvZL7+NY2wYo+DoKBOOmzPPidAakFF9ja6v990g85/1eUH9tWDpZVGREGKbf8IJOvw/4d3PtJGHtyHVcvQeuDYpLgBsDTEVvgJQWeCPyZEvXHZLDJjszrlql9A+jv6fJMKddi6MLEPOHekftZBKmeTbRya1Qzgxf+aykVRfPPBE3b2hwnWkpkN1hkxHY+2jPi55u7H4mRKsroLkBDa++K2u5uJ4YFJI2jBb3T9JNgezuAmJYSuexP5jkZzHoc03+MxqvJXD3W+z2T9oqUWl70Gq+DTJhxg782k7QmrAvH1DnrjmkVDIKgRF3HnxFTwaMhC3Lq8bveS5gH/b4gN8DviJGURiwxB2nbuDgoyknz2mQvvAtc8Vic7fnf0qrO3SmUyU/s1+ZYWm+1V/caJeyF0ClXAZ79NjBlZrqg8HRTKf4QjsFOV9X28JVmpCXiW+KXEncWUbi6nUhXMmnwy0mcWhYUCvbiZpMoYhDpHhIBOzDUcmHEk="
+    github-token: $GITHUB_TOKEN
     keep-history: true
     on:
       tags: true
   # Deploy pypi package
   - provider: pypi
     skip_cleanup: true
-    user:
-      secure: "mx/nCRkga0BaPYyz6boc4XJGzGPN7oHxGCMrYrfJwEQgro61Pke95OepzNXkY3ooenMJRgs7463Vq56oMOWigbNCErB6RfzsJjPwzZGN74MwrM4vp35ENUbRyF+KbWoWSnqhe3k70/8+8Zj3EAgtKBxJQB/Zx+EQ8HhzlcewXmUisHA8/z1pyHhb8Mw1+otQ0TaKHx7mm/4MMeolJY8pI3nTElnb0xlN38BS6ML298AjgFlpmvppzOsGt751gwEmTBLlu6jOfpeSiO7MdJGs5+F9Di2CJmQglQZ19boM3ckAv4SJVHqfPjbGh0hgvQD8x9AfRFqkwDmgzc1wyutJlvO8+KzWcdYo0ws7kzLMZv9AgX7d5ha6Vcy6s1anScjohj0AVt3y8Be/uMvGth3AvNN5ZCxfXA5pIlt7/zHiJovkBw8+PM/cD1pQdEBTaK+n692MwN4siy9w+J7FsOjVKqpYEdFiLJOcoRG5Mx3TcS4RvwrB0hmrR1GGEIjjHFU7hphZq+r32nZ5CVlpVxS2AViYVvyroF1GGU2md6q/p3pSXVaThw4ywWgUrYrbZSXnfmFSGz7aJ6DFQ5u4eU1x/u6tiyltAZkqR6856n/ZR/REbyeRKQgOOdn6mq88qYaeZ7BU99c0HAzaTWHEUC0BaZhQKfjpWNdnOaEOP4454E4="
-    password:
-      secure: "Rr911WIQxULM+GrCjQW/35kODjWXKtJByb78dV2/7Y+JiocvYaWdn6UUt9pacwpagYKO/losdgNYXxqkDRE6zy7MemuKx7CZlNx8gP3KRYaQ1EKfmdnZ0Y29yhcAX1vSDRzqLfy2fFyhEnDvxbP4lJ7gUxWDw9ePPY5AJ0z22xO8hGcS9tt8uDXMAB8lUN4czAtH8ONiTSMgpccaoPqq9ws2csBCPgdhzvi0/aJFs9rvRG4+4rOIUPlzKmx7wexB6gh5hwK8HQM/2F+po8R5B2hu6v7Y+5ACKy9SNamnIXSCivAJXJ0BGNG1QxSxiolPgUXlpEx392M6WUZVSbXP4kXZ4OS1dAWysZ26/taZDiLvoOYwo0FhEx/KHQ1tP5FknlMR+PJKnelCSyUMlrAv6wSwT3EE9zdKK/Ah1MEcwL5OjcTpEln+4r66w07JMuvfSnm7dIL2Qp++oSt4ANl+rc49Z6IaKDLpVB4EBpV1+twJhR/qfo0mLEc8kMZs9JoMfWl/BecsgObSC4i2o2kA7GvvgdPQl4TvdTu3RPgvxTbygi7+eoS2XaViW+7QiklwHHJr6b1jW5GZBwih5/lat8n1mPmyO66cgaB7+hYjzUbe5AAtHJlpM0dqFdeh3efGppCI1MLeOqAEi+AlyHmH8LS7nICudoocSfYHuK5IWMA="
+    user: $PYPI_USERNAME
+    password: $PYPI_PASSWORD
     distributions: "sdist bdist_wheel"
     server: https://test.pypi.org/legacy/
     on:
