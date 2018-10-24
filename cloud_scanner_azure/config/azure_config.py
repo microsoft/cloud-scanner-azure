@@ -1,8 +1,13 @@
 from cloud_scanner.config import Config
-from .azure_cosmosdb_config import AzureCosmosDbConfig
-from .azure_credential_config import AzureCredentialConfig
-from .azure_resource_config import AzureResourceServiceConfig
-from .azure_storage_config import AzureStorageConfig
+
+from cloud_scanner_azure.config.azure_cosmosdb_config import (
+    AzureCosmosDbConfig)
+from cloud_scanner_azure.config.azure_credential_config import (
+    AzureCredentialConfig)
+from cloud_scanner_azure.config.azure_resource_config import (
+    AzureResourceServiceConfig)
+from cloud_scanner_azure.config.azure_storage_config import (
+    AzureStorageConfig)
 
 
 class AzureConfig(Config):

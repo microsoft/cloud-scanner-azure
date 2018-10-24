@@ -1,13 +1,10 @@
-import logging
-
 from azure.mgmt.resource import ResourceManagementClient
-
 from cloud_scanner.contracts import (
     ResourceService, ResourceFilter, register_resource_service
 )
-from cloud_scanner_azure.config import AzureConfig, AzureResourceServiceConfig
 
-from .azure_resource import AzureResource
+from cloud_scanner_azure.config import AzureConfig, AzureResourceServiceConfig
+from cloud_scanner_azure.services.azure_resource import AzureResource
 
 
 class NoFilter(ResourceFilter):

@@ -1,4 +1,4 @@
-from .azure_storage_config import AzureStorageConfig
+from cloud_scanner_azure.config.azure_storage_config import AzureStorageConfig
 
 
 class AzureCosmosDbConfig:
