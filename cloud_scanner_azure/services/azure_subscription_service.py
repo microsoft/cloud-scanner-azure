@@ -26,10 +26,10 @@ class AzureSubscriptionService(AccountService):
 
     def get_accounts(self):
         """
-        :return: List of subscription dictionaries 
+        :return: List of subscription dictionaries
             with 'subscriptionId' and 'displayName' fields
         """
-        """
+
         return [sub.serialize(True) for sub in
                 self._get_client().subscriptions.list()]
 

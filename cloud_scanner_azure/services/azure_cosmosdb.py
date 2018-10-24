@@ -5,7 +5,8 @@ from cloud_scanner.helpers import entry_storage
 from cloud_scanner_azure.config import AzureCosmosDbConfig, AzureConfig
 
 
-@register_resource_storage('azure_cosmos_table', lambda: AzureCosmosDb.create())
+@register_resource_storage('azure_cosmos_table',
+                           lambda: AzureCosmosDb.create())
 class AzureCosmosDb(TableStorage):
     """Azure CosmosDB provider for Table Storage."""
 
