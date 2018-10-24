@@ -81,12 +81,12 @@ class AzureResourceService(ResourceService):
         """Returns filter object based on payload.
 
         :param payload: Filter type.
-        If payload is one of the known resource types, returns
-        AzureResourceTypeFilter with long type name. Users
-        can also directly specify long type name (e.g.
-        Microsoft.Compute/virtualMachines) and it will be used
-        as the resource filter.
-        No other filter types are supported except NoFilter.
+            If payload is one of the known resource types, returns
+            AzureResourceTypeFilter with long type name. Users
+            can also directly specify long type name (e.g.
+            Microsoft.Compute/virtualMachines) and it will be used
+            as the resource filter.
+            No other filter types are supported except NoFilter.
         :return: Filter object
         """
         if payload is None or payload.strip() == '*' or payload.strip() == '':

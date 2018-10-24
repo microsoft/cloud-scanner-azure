@@ -7,13 +7,12 @@ from .azure_storage_config import AzureStorageConfig
 
 class AzureConfig(Config):
     """Azure Configuration class for retrieving Azure-related configuration
-    properties."""
+        properties."""
 
     def get_property(self, property_name):
-        """Override of the base get_property. Each property_name has "AZURE_"
-        pre-pended onto it.
+        """Override of the base get_property.
 
-        :param property_name: Name of the AZURE_ property to get.
+        :param property_name: Name of the property to get.
         :return: Property value as a string or None if it doesn't exist.
         """
 
@@ -25,7 +24,7 @@ class AzureConfig(Config):
         """Gets the default Azure credential config.
 
         :return: AzureCredentialConfig populated with the
-        sAZURE_ CLIENT_ID, TENANT_ID, and CLIENT_SECRET
+            CLIENT_ID, TENANT_ID, and CLIENT_SECRET
         """
 
         return AzureCredentialConfig()
@@ -35,7 +34,8 @@ class AzureConfig(Config):
         the default Azure credential configuration.
 
         :param subscription_id: The subscription_id the resource service is
-        to target.
+            to target.
+
         :return: AzureResourceServiceConfig
         """
 
@@ -47,7 +47,7 @@ class AzureConfig(Config):
     @property
     def storage_config(self):
         """Gets the default AzureStorageConfig configuration specified by the
-        AZURE_ STORAGE_ACCOUNT and STORAGE_KEY properties."""
+            STORAGE_ACCOUNT and STORAGE_KEY properties."""
 
         return AzureStorageConfig(
             self.get_property('STORAGE_ACCOUNT'),
@@ -57,7 +57,7 @@ class AzureConfig(Config):
     @property
     def cosmos_storage_config(self):
         """Gets the default AzureCosmosDbConfig configuration specified by the
-        AZURE_ COSMOS_TABLE, COSMOS_ACCOUNT, and COSMOS_KEY properties."""
+            COSMOS_TABLE, COSMOS_ACCOUNT, and COSMOS_KEY properties."""
 
         return AzureCosmosDbConfig(
             self.get_property('COSMOS_TABLE'),

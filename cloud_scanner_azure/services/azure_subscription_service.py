@@ -18,6 +18,7 @@ class AzureSubscriptionService(AccountService):
         """
         :return: Azure SubscriptionClient object
         """
+
         if self._client is None:
             self._client = SubscriptionClient(self._config.service_principal)
 
@@ -25,12 +26,10 @@ class AzureSubscriptionService(AccountService):
 
     def get_accounts(self):
         """
-        :return: List of subscription dictionaries that look like:
-        {
-            'subscriptionId': ...,
-            'displayName': ...
-        }
+        :return: List of subscription dictionaries
+            with 'subscriptionId' and 'displayName' fields
         """
+
         return [sub.serialize(True) for sub in
                 self._get_client().subscriptions.list()]
 
@@ -38,7 +37,8 @@ class AzureSubscriptionService(AccountService):
     def create():
         """
         :return: Initialized AzureSubscriptionService object with
-        creds from config
+            creds from config
         """
+
         config = AzureConfig()
         return AzureSubscriptionService(config.credential_config)
