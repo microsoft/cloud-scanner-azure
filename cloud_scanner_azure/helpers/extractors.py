@@ -13,7 +13,7 @@ class ResourceExtractors:
     """
 
     provider_extractor = re.compile(
-        r"(?!(?:\/[^\/]+\/[^\/]+)+\/providers)\/providers\/([^\/]+)" +
+        r"(?!(?:\/[^\/]+\/[^\/]+)+\/providers)\/providers\/([^\/]+)"
         r"((:?\/[^\/]+\/[^\/]+)*)$", re.IGNORECASE)
     type_extractor = re.compile(r"\/([^\/]+)\/([^\/]+)", re.IGNORECASE)
     rg_sub_extractor = re.compile(
