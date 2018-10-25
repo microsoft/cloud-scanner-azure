@@ -1,4 +1,7 @@
-# cloud-scanner-azure
+# Cloud Scanner (Azure)
+
+[![Build Status](https://travis-ci.com/Microsoft/cloud-scanner-azure.svg?token=nXyWFYxRu6tVxUMJAuJr&branch=master)](https://travis-ci.com/Microsoft/cloud-scanner-azure)
+[![PyPI](https://img.shields.io/pypi/v/cloud-scanner-azure.svg)](https://pypi.org/project/cloud-scanner-azure/)
 
 Azure package of adapters for [cloud-scanner](https://github.com/Microsoft/cloud-scanner) library. Includes services and their required configurations.
 
