@@ -5,15 +5,13 @@ install:
   - pip install -r requirements.txt
 script:
   - pytest
+  - make sphinx
   - flake8 --ignore=F401 cloud_scanner_azure
 before_deploy:
-  # Generate Sphinx docs
   - make sphinx
-  # Generate PIP package distros
   - pip install --upgrade setuptools wheel
   - python setup.py sdist bdist_wheel
 deploy:
-  # Deploy Sphinx docs to github pages
   - provider: pages
     skip_cleanup: true
     local-dir: docs/build/html
@@ -21,12 +19,11 @@ deploy:
     keep-history: true
     on:
       tags: true
-  # Deploy pypi package
   - provider: pypi
     skip_cleanup: true
     user: $PYPI_USERNAME
-    password: FSvoLE3QbVwP0YKdQe90Yg61Rf+blIBfjkWV7di7vWv2TgSManfKApLh7mHAJXJgyd5yySowcrlyYbiXCqp2n4cRPEkZgiWU6wRu662sLokgTBof7npWyXgg711DqpaId+xBtHEGwWcbwSs03shC72UgGjEKUvA4T9dgbvQVTBMWDEEhlbCyFi7S6ZawGn1wUdutCM8q7Y585vjn0W97GTfYeF6i7JhUeCF2/fbLzj2M3CSiYek9EZt6S7C9Gcnf9OMn6ILN4QgIiIKGVQMh8fXEYX+VMk+f+sxRm/xbthLlr1Edl4XUHu3WxqYQtam3HT7uT7jmPqNzGKw3qaIOZd/k2QnNwBCQqSh5QwzGKE0gWVzCKbmP83rP9ca7fFvZLGlnbbfZ5g7pGn0o0IvYWMLWu7tUJX4oX2XckNDGt6KXIHH1NGMcWXoSzkQZpUYgvwy3S4S6zXi0yblxkKMZX0pAY8Lb6tPFqb/L0Jgu1sR3LZ1LHK5b3wxOEqtKLOi022SP0tD5ox2cMVPfTfsdmPXL8EXCoQ/wcg1fStgUkSKCzXb+z/gY02KEDn6JOVtBq6oI/VBOrfWY0O94QcMt9kZUf0erjmjJjqlBiMKfKhkbi2GKuPuXbj6IfGrDoZS9JlBofr0cqE/RsI7DayMYOGii93xEfetU3UwLczzdVP8=
+    password: 
+      secure: FSvoLE3QbVwP0YKdQe90Yg61Rf+blIBfjkWV7di7vWv2TgSManfKApLh7mHAJXJgyd5yySowcrlyYbiXCqp2n4cRPEkZgiWU6wRu662sLokgTBof7npWyXgg711DqpaId+xBtHEGwWcbwSs03shC72UgGjEKUvA4T9dgbvQVTBMWDEEhlbCyFi7S6ZawGn1wUdutCM8q7Y585vjn0W97GTfYeF6i7JhUeCF2/fbLzj2M3CSiYek9EZt6S7C9Gcnf9OMn6ILN4QgIiIKGVQMh8fXEYX+VMk+f+sxRm/xbthLlr1Edl4XUHu3WxqYQtam3HT7uT7jmPqNzGKw3qaIOZd/k2QnNwBCQqSh5QwzGKE0gWVzCKbmP83rP9ca7fFvZLGlnbbfZ5g7pGn0o0IvYWMLWu7tUJX4oX2XckNDGt6KXIHH1NGMcWXoSzkQZpUYgvwy3S4S6zXi0yblxkKMZX0pAY8Lb6tPFqb/L0Jgu1sR3LZ1LHK5b3wxOEqtKLOi022SP0tD5ox2cMVPfTfsdmPXL8EXCoQ/wcg1fStgUkSKCzXb+z/gY02KEDn6JOVtBq6oI/VBOrfWY0O94QcMt9kZUf0erjmjJjqlBiMKfKhkbi2GKuPuXbj6IfGrDoZS9JlBofr0cqE/RsI7DayMYOGii93xEfetU3UwLczzdVP8=
     distributions: sdist bdist_wheel
-    server: https://test.pypi.org/legacy/
     on:
       tags: true
