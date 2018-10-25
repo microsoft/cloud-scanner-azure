@@ -5,7 +5,12 @@
 
 Azure package of adapters for [cloud-scanner](https://github.com/Microsoft/cloud-scanner) library. Includes services and their required configurations.
 
-### Running Locally
+**Note: This library is NOT affiliated with the Azure team at Microsoft and was developed by the Commercial Software Engineering team as a tool for the Open Source community to use and contribute to as they see fit. Use at your own risk!**
+
+## Developer Documentation
+[Read the API docs](https://microsoft.github.io/cloud-scanner-azure/)
+
+## Running Locally
 
 You can run unit tests in a Python 3.6 virtual environment:
 
@@ -16,27 +21,27 @@ source env/bin/activate
 (env) python -m pytest
 ```
 
-#### Queue Adapters
+### Queue Adapters
 - Azure Storage Queue
     - Needs `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY`
     - To use, set environment variable `QUEUE_TYPE=azure_storage_queue`
 
-#### Resource Service Adapters
+### Resource Service Adapters
 - Azure Resource Service
     - Needs `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` and `AZURE_TENANT_ID` of Service Principal
     - If performing actions other than reading, Service Principal needs to be given `Contributor` access or greater
 
-#### Storage Container Adapters
+### Storage Container Adapters
 - Azure Blob Storage
     - Needs `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY`
     - To use, set environment variable `STORAGE_CONTAINER_TYPE=azure_storage`
 
-#### Table Storage Adapters
+### Table Storage Adapters
 - Azure CosmosDB
     - Needs `COSMOS_TABLE`, `COSMOS_ACCOUNT` and `COSMOS_KEY`
     - To use, set environment variable `RESOURCE_STORAGE_TYPE=azure_cosmos_table`
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
